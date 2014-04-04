@@ -5,6 +5,10 @@ describe Employee, "associations" do
 end
 
 describe Employee, "#charge!" do
+  before do
+    ChargeMailer.stub_chain(:employee_charged, :deliver) { true }
+  end
+
   context "when was charged less than 2 minute ago" do
     subject(:employee) { described_class.create(last_charged_at: Time.now) }
 
@@ -35,6 +39,12 @@ describe Employee, "#charge!" do
 
       expect(employee.last_charged_at).to eq time
     end
-  end
 
+    it "sends the mail" do
+      mail = double(:mail)
+      expect(ChargeMailer).to receive(:employee_charged).with(employee, 100) { mail }
+      expect(mail).to receive(:deliver)
+      employee.charge!(100)
+    end
+  end
 end

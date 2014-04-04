@@ -4,7 +4,11 @@
     <div class="caption">
       <h3><%= employee.name %></h3>
       <p><%= number_to_currency(employee.total, precision: 0, unit: "¢ ")%></p>
-      <p> <a href="#" class="btn btn-primary" role="button">Charge</a> </p>
+      <p>
+        <%= form_for employee, url: charge_employee_path(employee), method: :post do |f| %>
+          <%= f.submit "Charge", class: "btn btn-primary", role: "button" %>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 PernixEnglish::Application.routes.draw do
   root 'home#index'
 
-  post 'employees/charge', to: 'employees#charge'
+  post 'employees/:id/charge', to: 'employees#charge', as: 'charge_employee'
 end
