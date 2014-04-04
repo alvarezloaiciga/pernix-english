@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Employee.create(name: "Ulises Pacheco", email: "upacheco@pernix-solutions.com")
+Employee.create(name: "Abraham Sibaja", email: "asibaja@pernix-solutions.com")
+Employee.create(name: "Jose Alvarez", email: "jalvarez@pernix-solutions.com")
+Employee.create(name: "Pablo Bonilla", email: "pbonilla@pernix-solutions.com")
+Employee.create(name: "Brayan Zuñiga", email: "brayan@pernix-solutions.com")
+Employee.create(name: "Jose Chacon", email: "jchacon@pernix-solutions.com")
+Employee.create(name: "Jonathan Avalos", email: "javalos@pernix-solutions.com")
+Employee.create(name: "Danilo Sanchez", email: "dsanchez@pernix-solutions.com")
+Employee.create(name: "Gabriel Madriz", email: "gmadriz@pernix-solutions.com")
+Employee.create(name: "Cesar Navarro", email: "cnavarro@pernix-solutions.com")
+Employee.create(name: "Esteban Hernandez", email: "ehernandez@pernix-solutions.com")
+Employee.create(name: "Satcha Villafuerte", email: "svillafuerte@pernix-solutions.com")
+Employee.create(name: "Fernanda Coto", email: "fcoto@pernix-solutions.com")
+Employee.create(name: "Carlos Sirias", email: "csirias@pernix-solutions.com")
