@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encode: utf8
+  database: pernix_english_dev
+  host: localhost
+  pool: 5
+
+test:
+  adapter: postgresql
+  encode: utf8
+  database: pernix_english_dev
+  host: localhost
+  pool: 5
