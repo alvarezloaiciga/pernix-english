@@ -12,3 +12,4 @@ Employee.create(name: "Esteban Hernandez", email: "ehernandez@pernix-solutions.c
 Employee.create(name: "Satcha Villafuerte", email: "svillafuerte@pernix-solutions.com")
 Employee.create(name: "Fernanda Coto", email: "fcoto@pernix-solutions.com")
 Employee.create(name: "Carlos Sirias", email: "csirias@pernix-solutions.com")
+Employee.create(name: "Arnaldo Porras", email: "aporras@pernix-solutions.com")
