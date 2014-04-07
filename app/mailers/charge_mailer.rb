@@ -1,5 +1,5 @@
 class ChargeMailer < ActionMailer::Base
-  default from: "police@pernix.cr"
+  default from: "The Police <police@pernix.cr>"
 
   def employee_charged(employee, ammount)
     @employee = employee
