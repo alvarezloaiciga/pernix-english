@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407200856) do
+ActiveRecord::Schema.define(version: 20140526013509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,36 @@ ActiveRecord::Schema.define(version: 20140407200856) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "badge_nomination_votes", force: true do |t|
+    t.integer  "badge_nomination_id"
+    t.integer  "status_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "badge_nomination_votes", ["badge_nomination_id"], name: "index_badge_nomination_votes_on_badge_nomination_id", using: :btree
+  add_index "badge_nomination_votes", ["status_id"], name: "index_badge_nomination_votes_on_status_id", using: :btree
+
+  create_table "badge_nominations", force: true do |t|
+    t.integer  "badge_id"
+    t.integer  "nominated_id"
+    t.integer  "nominator_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "badge_nominations", ["badge_id"], name: "index_badge_nominations_on_badge_id", using: :btree
+
+  create_table "badges", force: true do |t|
+    t.string   "title"
+    t.integer  "points"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "charges", force: true do |t|
     t.float    "ammount"
     t.integer  "employee_id"
@@ -63,6 +93,12 @@ ActiveRecord::Schema.define(version: 20140407200856) do
     t.string   "email"
     t.float    "total",           default: 0.0
     t.datetime "last_charged_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: true do |t|
+    t.text     "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
