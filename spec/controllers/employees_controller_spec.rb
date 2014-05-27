@@ -10,7 +10,7 @@ describe EmployeesController, "POST Charge" do
   end
 
   it "charges the employee" do
-    expect(employee).to receive(:charge)
+    expect(employee).to receive(:charge!)
     post :charge, id: employee.id
   end
 
