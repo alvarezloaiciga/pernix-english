@@ -5,4 +5,6 @@ PernixEnglish::Application.routes.draw do
 
   post 'employees/:id/charge', to: 'employees#charge', as: 'charge_employee'
   get 'badges/index', to: 'badge_nominations#index', as: 'badge_nominations'
+
+  resources :badge_nomination_votes, only: [:create]
 end
