@@ -1,21 +1,20 @@
-<div class="header">
-  <div class="box-960">
-    <div class="header-elements">
-      <div class="logo">
-        <%= image_tag "misc/logo.png" %>
-      </div>
-      <a href="#" class="deploy-navigation"></a>
+<div class="row-container">
+  <div class="row centered-vertical">
+    <div class="col-sm-6 col-md-6">
+      <a class="index-link" href="<%= badge_nominations_path %>">
+        <div class="image-link">
+          <img src="assets/badges.jpeg">
+        </div>
+        <h2> Badge Nominations </h2>
+      </a>
     </div>
-    <div class="navigation">
-      <a data-scroll-nav="0" href="#">  <i class="fa fa-arrow-up"></i>   <em>Home</em>      </a>
-      <a data-scroll-nav="1" href="#">  <i class="fa fa-home"></i>     <em>Welcome</em>     </a>
-      <a data-scroll-nav="2" href="#">  <i class="fa fa-user"></i>     <em>About</em>     </a>
-      <a data-scroll-nav="3" href="#">  <i class="fa fa-picture-o"></i> <em>Team</em> </a>
-      <a id= "apply-nav" data-scroll-nav="4" href="#">  <i class="fa fa-envelope-o"></i>   <em>APPLY!</em>    </a>
-      <a data-scroll-nav="2" href="#">  <i class="fa fa-envelope-o"></i>   <em>Login</em>    </a>
+    <div class="col-sm-6 col-md-6">
+      <a class="index-link" href="<%= employees_index_path %>">
+        <div class="image-link">
+          <img src="assets/police.jpeg">
+        </div>
+        <h2> English Police  </h2>
+      </a>
     </div>
   </div>
-</div>
-<div class="row">
-
 </div>
