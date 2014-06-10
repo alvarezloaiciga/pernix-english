@@ -7,17 +7,31 @@
 
   <meta name="apple-mobile-web-app-title" content="Pernix Apprenticeship">
   <%= favicon_link_tag 'favicon.ico' %>
-  
-  <title>PernixEnglish</title>
+
+  <title>Pernix</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<!div class="container">
-  <%= yield %>
-<!/div>
+<div class="header">
+  <div class="box-960">
+    <div class="header-elements">
+      <div class="logo">
+        <%= image_tag "misc/logo.png" %>
+      </div>
+      <a href="#" class="deploy-navigation"></a>
+    </div>
+    <div class="navigation">
+      <a href="<%= root_path %>">  <i class="fa fa-home"></i>   <em>Home</em>      </a>
+      <a href="<%= badge_nominations_path %>">  <i class="fa fa-badges"></i>     <em>Badges</em>     </a>
+      <a href="<%= employees_index_path %>">  <i class="fa fa-police"></i>     <em>Police</em>     </a>
+    </div>
+  </div>
+</div>
+
+<%= yield %>
 
 </body>
 </html>
