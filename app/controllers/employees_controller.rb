@@ -4,4 +4,8 @@ class EmployeesController < ApplicationController
     employee.charge!
     redirect_to root_path
   end
+
+  def index
+    @employees = Employee.all
+  end
 end
