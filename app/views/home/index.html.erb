@@ -1,3 +1,20 @@
-<div class="row">
-  <%= render @employees %>
+<div class="row-container">
+  <div class="row centered-vertical">
+    <div class="col-sm-6 col-md-6">
+      <a class="index-link" href="<%= badge_nominations_path %>">
+        <div class="image-link">
+          <img src="assets/badges.jpeg">
+        </div>
+        <h2> Badge Nominations </h2>
+      </a>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <a class="index-link" href="<%= employees_index_path %>">
+        <div class="image-link">
+          <img src="assets/police.jpeg">
+        </div>
+        <h2> English Police  </h2>
+      </a>
+    </div>
+  </div>
 </div>
