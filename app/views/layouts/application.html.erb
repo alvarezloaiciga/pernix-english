@@ -14,24 +14,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<div class="header">
-  <div class="box-960">
-    <div class="header-elements">
-      <div class="logo">
-        <%= image_tag "misc/logo.png" %>
+  <header>
+    <div class="box-960">
+      <div class="header-elements">
+        <div class="logo">
+          <a href="<%= root_path %>">
+            <%= image_tag "logo.png" %>
+        </a>
+        </div>
       </div>
-      <a href="#" class="deploy-navigation"></a>
+      <div class="navigation">
+        <a href="<%= root_path %>">  <i class="fa fa-home"></i>   <em>Home</em>      </a>
+        <a href="<%= badge_nominations_path %>">  <i class="fa fa-badges"></i>     <em>Badges</em>     </a>
+        <a href="<%= employees_index_path %>">  <i class="fa fa-police"></i>     <em>Police</em>     </a>
+      </div>
     </div>
-    <div class="navigation">
-      <a href="<%= root_path %>">  <i class="fa fa-home"></i>   <em>Home</em>      </a>
-      <a href="<%= badge_nominations_path %>">  <i class="fa fa-badges"></i>     <em>Badges</em>     </a>
-      <a href="<%= employees_index_path %>">  <i class="fa fa-police"></i>     <em>Police</em>     </a>
+  </header>
+  <%= yield %>
+
+  <div class="content">
+    <div class="box-960">  
+      <div class="decoration"></div>
+      <div class="full-bottom">
+        <p class="center-text">Copyright 2014 - Pernix. All rights reserved.</p>
+      </div>
     </div>
   </div>
-</div>
-
-<%= yield %>
-
 </body>
 </html>

@@ -1,0 +1,52 @@
+.main-content {
+  height: 80vh;
+  .row-container {
+    height: 100vh;
+    width: 100%;
+    display: table;
+    position: absolute;
+    .centered-vertical {
+      display: table-cell;
+      vertical-align: middle;
+      position: static;
+      width: 100%;
+      .index-link {
+        text-align: center;
+        text-decoration: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        a {
+          color: black;
+        }
+        .image-link {
+          width: 200px;
+          height: 200px;
+          margin-left: auto;
+          margin-right: auto;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:active {
+  text-decoration: underline;
+}
+
+.top-moved {
+  margin-top: 120px;
+}

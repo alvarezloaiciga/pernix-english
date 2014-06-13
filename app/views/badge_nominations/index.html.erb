@@ -1,6 +1,38 @@
 <div class="content top-moved">
+  <div class="modal fade" id="add-nomination-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add Nomination</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for @badge_nomination, remote: true  do |f| %>
+            <div class="badges">
+              <%= f.label :badge_id, "Badge" %>
+              <%= f.collection_select :badge_id, Badge.all, :id, :title, { prompt: true }, required: true %>
+            </div>
+            <div class="nominated">
+              <%= f.label :nominated_id, "Nominated" %>
+              <%= f.collection_select :nominated_id, Employee.all, :id, :name, { prompt: true }, required: true %>
+            </div>
+            <div class="nominator">
+              <%= f.label :nominator_id, "Nominator" %>
+              <%= f.collection_select :nominator_id, Employee.all, :id, :name, { prompt: true }, required: true %>
+            </div>
+            <%= f.text_area :description, placeholder: "Description (e.g. 'He learned elixir')", required: true %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="modal-submit" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <button class="btn btn-primary" data-toggle="modal" data-target="#add-nomination-modal">Large modal</button>
   <div class="box-960">
-      <div class="decoration"></div>
         <div class="welcome-container larger-text">
         <h1 class="center-text heading">Badge Nominations</h1>
         <p class="center-text">
@@ -11,32 +43,9 @@
 </div>
 
 <div class="container no-bottom">
-  <div class="decoration hide-if-responsive"></div>
   <div class="contact-box one-half-responsive last delay-1000 animated fadeIn">
-    <h5 class="hide-if-mobile">Nominations</h5>
     <div class="contact-form no-bottom"> 
-      <%= render partial: 'nomination_form' %>
     </div>
   </div>
   <div class="clear"></div>
-
-  <div class="content">
-    <div class="box-960">  
-      <div class="decoration"></div>
-      <div class="footer full-bottom">
-        <p class="center-text no-bottom">Copyright 2014 - Pernix. All rights reserved.</p>
-      </div>
-    </div>
-  </div>
 </div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-49434317-1', 'pernix.cr');
-  ga('send', 'pageview');
-
-</script>
