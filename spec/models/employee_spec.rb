@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Employee, "associations" do
   it { should have_many(:charges) }
+  it { should have_many(:nominations).class_name(BadgeNomination) }
 end
 
 describe Employee, "#charge!" do

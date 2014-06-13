@@ -1,0 +1,51 @@
+<div class="content top-moved">
+  <div class="modal fade" id="add-nomination-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Add Nomination</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for @badge_nomination, remote: true  do |f| %>
+            <div class="badges">
+              <%= f.label :badge_id, "Badge" %>
+              <%= f.collection_select :badge_id, Badge.all, :id, :title, { prompt: true }, required: true %>
+            </div>
+            <div class="nominated">
+              <%= f.label :nominated_id, "Nominated" %>
+              <%= f.collection_select :nominated_id, Employee.all, :id, :name, { prompt: true }, required: true %>
+            </div>
+            <div class="nominator">
+              <%= f.label :nominator_id, "Nominator" %>
+              <%= f.collection_select :nominator_id, Employee.all, :id, :name, { prompt: true }, required: true %>
+            </div>
+            <%= f.text_area :description, placeholder: "Description (e.g. 'He learned elixir')", required: true %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="modal-submit" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <button class="btn btn-primary" data-toggle="modal" data-target="#add-nomination-modal">Large modal</button>
+  <div class="box-960">
+        <div class="welcome-container larger-text">
+        <h1 class="center-text heading">Badge Nominations</h1>
+        <p class="center-text">
+              The nominations for this week are:
+        </p>
+        </div>
+  </div>
+</div>
+
+<div class="container no-bottom">
+  <div class="contact-box one-half-responsive last delay-1000 animated fadeIn">
+    <div class="contact-form no-bottom"> 
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

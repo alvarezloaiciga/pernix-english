@@ -1,5 +1,6 @@
 class Employee < ActiveRecord::Base
   has_many :charges
+  has_many :nominations, class_name: BadgeNomination, foreign_key: :nominated_id
 
   default_scope -> { order(:name) }
 
