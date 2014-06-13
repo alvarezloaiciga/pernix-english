@@ -1,0 +1,22 @@
+.nominations {
+  margin: 4rem 0;
+  .nomination {
+    .nomination-container {
+      width: 80%;
+      margin: 0 auto;
+      .nomination-vote {
+        .vote-status-options {
+          margin-left: 1rem;
+          margin-right: 0.5rem;
+        }
+        .vote-response {
+          width: 100%;
+        }
+        .vote-submit {
+          display: block;
+          float: right;
+        }
+      }
+    }
+  }
+}

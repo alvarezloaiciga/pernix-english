@@ -3,7 +3,7 @@ class BadgeNominationsController < ApplicationController
   def index
   	@badge_nomination_vote = BadgeNominationVote.new
     @badge_nomination = BadgeNomination.new
-  	@nominations = BadgeNomination.all
+  	@nominations = BadgeNomination.this_week
   end
 
   def create

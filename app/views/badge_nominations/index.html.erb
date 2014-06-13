@@ -31,21 +31,19 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-  <button class="btn btn-primary" data-toggle="modal" data-target="#add-nomination-modal">Large modal</button>
-  <div class="box-960">
-        <div class="welcome-container larger-text">
-        <h1 class="center-text heading">Badge Nominations</h1>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#add-nomination-modal">Add Nomination</button>
+  <div class="row">
+    <div class="welcome-container larger-text">
+      <h1 class="center-text heading">Badge Nominations</h1>
         <p class="center-text">
               The nominations for this week are:
         </p>
-        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="nominations row"> 
+      <%= render partial: 'week_nominations', collection: @nominations, as: :nomination %>
+    </div>
   </div>
 </div>
 
-<div class="container no-bottom">
-  <div class="contact-box one-half-responsive last delay-1000 animated fadeIn">
-    <div class="contact-form no-bottom"> 
-    </div>
-  </div>
-  <div class="clear"></div>
-</div>
