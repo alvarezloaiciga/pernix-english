@@ -1,11 +1,17 @@
 class BadgeNominationVotesController < ApplicationController
   def create
-    @badge_nomination_vote = BadgeNominationVote.new(vote_params)
-    @badge_nomination_vote.save
+    BadgeNominationVote.create(vote_params)
+    render 'vote_submitted_success'
+  end
+
+  def results
+    @badge_nominations = BadgeNomination.this_week.includes(:badge_nomination_votes)
   end
 
   private
   def vote_params
-    params.require(:badge_nomination_vote).permit(:description, :status)
+    params.permit(:badge_nomination_id)
+      .merge(params.require(:badge_nomination_vote)
+      .permit(:description, :status_id))
   end
 end

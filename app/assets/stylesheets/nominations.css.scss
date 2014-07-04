@@ -1,0 +1,57 @@
+.nominations {
+  margin: 4rem 0;
+  .nomination {
+    .nomination-container {
+      width: 80%;
+      margin: 0 auto;
+      .nomination-vote {
+        .vote-status-options {
+          margin-left: 1rem;
+          margin-right: 0.5rem;
+        }
+        .vote-response {
+          width: 100%;
+        }
+        .vote-submit {
+          display: block;
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+.modal-dialog {
+  width: 40%;
+  .form-row {
+    width: 100%;
+    label {
+      width: 20%;
+    }
+    select {
+      width: 79%;
+    }
+  }
+  #badge_nomination_description {
+    width: 100%;
+  }
+}
+
+.buttons-container {
+  z-index: 9999;
+  position: fixed;
+  background-color: rgba(28, 28, 28, 0.8);
+  right: 0;
+  top: 25%;
+  width: 13em;
+  padding: 1em;
+  border-top-left-radius: 2em;
+  border-bottom-left-radius: 2em;
+  .button {
+    width: 100%;
+    text-align: center;
+    &:first-child {
+      margin-bottom: 1em;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="nomination col-sm-6 col-md-6">
+  <div class="nomination-container">
+    <div class="nomination-info">
+      <h4><%= nomination.badge.title %></h2>
+      <p><%= "#{nomination.nominator.name} nominated #{nomination.nominated_employee.name}" %></p>
+      <p> Because <%= nomination.description %></p>
+    </div>
+    <div class="nomination-vote">
+      <h5> Vote: </h5>
+      <%= form_for [nomination, @badge_nomination_vote], method: :post, remote: true do |f| %>
+        <%= f.collection_radio_buttons(:status_id, Status.all, :id, :status, {}, required: true, class: 'vote-status-options') %>
+        <%= f.text_area :description, placeholder: "Response", required: true, class: "vote-response" %>
+        <%= f.submit "Vote", required: true, class: "vote-submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="result col-sm-6 col-md-6 nomination-vote">
+  <div class="result-vote-container">
+    <h4><%= nomination.badge.title %></h4>
+    <p> Nominated: <%= nomination.nominated_employee.name %></p>
+    <p> Nominator: <%= nomination.nominator.name %></p>
+    <div class="votes-results">
+      <p> Upvotes: <%= nomination.count_votes_with_status('Accept') %></p>
+      <p> Downvotes: <%= nomination.count_votes_with_status('Deny') %></p>
+      <p> N/A: <%= nomination.count_votes_with_status('N/A') %></p>
+    </div>
+    <div class='responses'>
+      <h5> Responses: </h5>
+      <% nomination.badge_nomination_votes.each do |answer| %>
+        <div class='response'>
+          <h5><%= answer.status.status %></h5>
+          <p><%= answer.description %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
