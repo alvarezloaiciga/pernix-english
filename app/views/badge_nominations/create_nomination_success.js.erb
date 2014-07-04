@@ -1,0 +1,4 @@
+$('.alert-saved-nomination').show();
+$("#add-nomination-modal").modal('hide');
+$('.nominations').append('<%= j render(partial: 'week_nominations', locals: { nomination: @nomination }) %>');
+cleanAddNominationForm();

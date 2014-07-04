@@ -8,4 +8,5 @@ PernixEnglish::Application.routes.draw do
   resources :badge_nominations, only: [:index, :create] do
     resource :badge_nomination_votes, only: :create
   end
+  get 'badge_nomination_votes/results', to: 'badge_nomination_votes#results', as: 'votes_results'
 end

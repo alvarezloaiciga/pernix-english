@@ -7,8 +7,12 @@ class BadgeNominationsController < ApplicationController
   end
 
   def create
-    BadgeNomination.create(badge_nomination_params)
-    render nothing: true
+    if @nomination = BadgeNomination.create(badge_nomination_params)
+      @badge_nomination_vote = BadgeNominationVote.new
+      render 'create_nomination_success'
+    else
+      render 'create_nomination_fail'
+    end
   end
 
   private

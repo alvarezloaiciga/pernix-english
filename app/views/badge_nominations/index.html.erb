@@ -1,37 +1,53 @@
 <div class="content top-moved">
+  <div class="alert-saved-nomination-error alert alert-error fade in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Error!</strong> Could not submit your answer, try again later
+  </div>
+  <div class="alert-saved-nomination alert alert-success fade in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Nomination Saved!</strong> Your nomination has been saved succesfully
+  </div>
+  <div class="alert-vote-submitted alert alert-success fade in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Vote Submitted!</strong> Your vote has been saved succesfully
+  </div>
   <div class="modal fade" id="add-nomination-modal">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Add Nomination</h4>
-        </div>
-        <div class="modal-body">
-          <%= form_for @badge_nomination, remote: true  do |f| %>
-            <div class="badges">
+      <%= form_for @badge_nomination, remote: true  do |f| %>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Add Nomination</h4>
+          </div>
+          <div class="modal-body">
+            <div class="badges form-row">
               <%= f.label :badge_id, "Badge" %>
-              <%= f.collection_select :badge_id, Badge.all, :id, :title, { prompt: true }, required: true %>
+              <%= f.collection_select :badge_id, Badge.all, :id, :title, { prompt: true }, required: true, class: 'add-nomination-input' %>
             </div>
-            <div class="nominated">
+            <div class="nominated form-row">
               <%= f.label :nominated_id, "Nominated" %>
-              <%= f.collection_select :nominated_id, Employee.all, :id, :name, { prompt: true }, required: true %>
+              <%= f.collection_select :nominated_id, Employee.all, :id, :name, { prompt: true }, required: true, class: 'add-nomination-input' %>
             </div>
-            <div class="nominator">
+            <div class="nominator form-row">
               <%= f.label :nominator_id, "Nominator" %>
-              <%= f.collection_select :nominator_id, Employee.all, :id, :name, { prompt: true }, required: true %>
+              <%= f.collection_select :nominator_id, Employee.all, :id, :name, { prompt: true }, required: true, class: 'add-nomination-input' %>
             </div>
-            <%= f.text_area :description, placeholder: "Description (e.g. 'He learned elixir')", required: true %>
-          <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button id="modal-submit" type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div><!-- /.modal-content -->
+            <%= f.text_area :description, placeholder: "Description (e.g. 'He learned elixir')", required: true, class: 'add-nomination-input' %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="cancel-btn" data-dismiss="modal">Close</button>
+            <%= f.submit "Submit nomination", id: "modal-submit", class: "btn btn-primary" %>
+          </div>
+        </div><!-- /.modal-content -->
+      <% end %>
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-  <button class="btn btn-primary" data-toggle="modal" data-target="#add-nomination-modal">Add Nomination</button>
+  <div class='buttons-container'>
+    <a class="button" href="#" data-toggle="modal" data-target="#add-nomination-modal">Add Nomination</a>
+    <a class="button" href="<%= votes_results_path %>">View Results</a>
+  </div>
+
   <div class="row">
     <div class="welcome-container larger-text">
       <h1 class="center-text heading">Badge Nominations</h1>

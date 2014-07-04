@@ -1,7 +1,11 @@
 class BadgeNominationVotesController < ApplicationController
   def create
     BadgeNominationVote.create(vote_params)
-    render nothing: true
+    render 'vote_submitted_success'
+  end
+
+  def results
+    @badge_nominations = BadgeNomination.this_week.includes(:badge_nomination_votes)
   end
 
   private
